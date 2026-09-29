@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Standards"
+  short_description: "Choose WCAG targets and map accessibility requirements"
+  default_prompt: "Use $accessibility-standards to select the WCAG target and explain the requirements for this product."

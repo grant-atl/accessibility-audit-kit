@@ -1,0 +1,4 @@
+interface:
+  display_name: "Healthcare Accessibility"
+  short_description: "Audit care journeys, telehealth, and medical records"
+  default_prompt: "Use $healthcare-accessibility to audit this healthcare journey, including assistive technology, privacy, and care access."

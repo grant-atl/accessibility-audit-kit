@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Checks"
+  short_description: "Add project accessibility checks and optional hooks"
+  default_prompt: "Use $accessibility-checks to connect this project's accessibility tests to optional Git, CI, and Claude Code hooks."

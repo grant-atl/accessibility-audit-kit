@@ -1,0 +1,12 @@
+{
+  "name": "accessibility-audit-kit",
+  "description": "Accessibility audit and remediation skills with optional regression-check hooks",
+  "owner": { "name": "Accessibility Audit Kit contributors" },
+  "plugins": [
+    {
+      "name": "accessibility-audit-kit",
+      "source": "./",
+      "description": "Accessibility skills with optional Git, CI, and Claude Code checks"
+    }
+  ]
+}

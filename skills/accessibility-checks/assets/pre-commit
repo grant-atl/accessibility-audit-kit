@@ -1,0 +1,3 @@
+#!/bin/sh
+# Requires a reviewed runner at this repository-relative path.
+exec python3 scripts/accessibility-checks.py run

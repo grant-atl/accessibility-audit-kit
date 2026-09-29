@@ -1,0 +1,9 @@
+{
+  "name": "accessibility-audit-kit",
+  "version": "1.0.0",
+  "description": "Accessibility audit, remediation, standards, and opt-in check skills for developers and designers",
+  "author": { "name": "Accessibility Audit Kit contributors" },
+  "repository": "https://github.com/grant-atl/accessibility-audit-kit",
+  "license": "MIT",
+  "keywords": ["accessibility", "wcag", "audit", "design", "hooks"]
+}

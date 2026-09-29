@@ -1,0 +1,5 @@
+# Add to an existing job after its normal checkout, runtime, dependency,
+# browser, and app-server setup. The configured command owns test readiness.
+# Do not use pull_request_target to run untrusted contribution code.
+- name: Accessibility regression checks
+  run: python3 scripts/accessibility-checks.py run

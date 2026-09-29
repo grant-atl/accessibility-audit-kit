@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Fix"
+  short_description: "Fix barriers in shared components and user journeys"
+  default_prompt: "Use $accessibility-fix to repair these accessibility barriers and verify the affected interaction and callers."
