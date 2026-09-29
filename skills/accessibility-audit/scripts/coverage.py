@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create or validate a WCAG criterion-by-state evidence ledger. No network calls."""
+"""Create or validate a WCAG 2.2 criterion-by-state evidence ledger. No network calls."""
 
 import argparse
 import collections
@@ -62,7 +62,7 @@ def create(path, expected):
         writer.writerow(FIELDS)
         for key, metadata in expected.items():
             writer.writerow([*key, *metadata, "not-tested", "", "", ""])
-    print(f"Created {len(expected)} untested criterion/state rows.")
+    print(f"Created {len(expected)} untested WCAG 2.2 criterion/state rows.")
 
 
 def summarize(path, expected):
@@ -92,7 +92,7 @@ def summarize(path, expected):
     for required, label in (("yes", "Target criteria"), ("no", "Supplemental criteria")):
         print(label + ": " + ", ".join(f"{status}={counts[required][status]}" for status in sorted(STATUSES)))
     unresolved = sum(value for key, value in counts["yes"].items() if key not in {"pass", "not-applicable"})
-    print("Ledger validation only; site inventory, test execution, and conformance are not independently verified.")
+    print("WCAG 2.2 ledger validation only; site inventory, test execution, and conformance are not independently verified.")
     return 1 if unresolved else 0
 
 

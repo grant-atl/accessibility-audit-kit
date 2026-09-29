@@ -7,8 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3",
-            "args": ["${CLAUDE_PLUGIN_ROOT}/skills/accessibility-checks/scripts/checks.py", "claude"],
+            "command": "python3 \"$CLAUDE_PLUGIN_ROOT/skills/accessibility-checks/scripts/checks.py\" claude",
             "timeout": 140
           }
         ]

@@ -25,11 +25,11 @@ def git_path(cwd, argument):
     env = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
     result = subprocess.run(
         ["git", "-C", str(cwd), "rev-parse", argument],
-        capture_output=True, text=True, timeout=5, env=env,
+        capture_output=True, timeout=5, env=env,
     )
     if result.returncode:
         raise CheckError("A Git working tree is required.")
-    return Path(result.stdout.strip()).resolve()
+    return Path(os.fsdecode(result.stdout.removesuffix(b"\n"))).resolve()
 
 
 def project_root(cwd):

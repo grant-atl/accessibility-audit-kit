@@ -2,6 +2,8 @@
 
 The matrix contains all 86 WCAG 2.2 success criteria: 31 A, 24 AA, 31 AAA. Obsolete 4.1.1 is not an active 2.2 criterion. A full review records each criterion for every in-scope location/state. A criterion can be inapplicable, but it cannot disappear. Legal scope and whole-site conformance require more than completing a spreadsheet.
 
+This matrix and utility support **WCAG 2.2 only**. `--target` selects the conformance level, not the WCAG version. For a requested 2.0/2.1 evaluation, use that version's official criteria in a separate ledger, including any policy-required 4.1.1 reporting and current W3C interpretation. Do not use the 86-row output as proof of evaluating a different version.
+
 Also review WCAG's [five conformance requirements](https://www.w3.org/TR/WCAG22/#conformance-reqs): the selected level, full pages, complete processes, accessibility-supported ways of using technologies, and non-interference. Third-party or non-relied-upon content can still interfere through traps, audio, motion or flashes. Record support assumptions and conforming-alternate-version claims explicitly; do not use an alternate version as a blanket excuse for an inaccessible primary journey. WCAG does not recommend requiring AAA for entire sites because some content cannot satisfy all AAA criteria; evaluating all AAA rows still reveals applicable improvements.
 
 ## Inventory before testing

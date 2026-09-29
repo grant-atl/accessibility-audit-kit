@@ -21,7 +21,9 @@ Choose the evidence available:
 | Figma or other design file | Actual layers, tokens, variants, prototypes, annotations when tools are available | Design intent does not prove DOM semantics or implemented keyboard behavior |
 | Screenshot | Visible labels, content, hierarchy, contrast candidates, layout | Pixels cannot establish accessible names, reading order, keyboard behavior, CSS target sizes, or conformance |
 
-For a **full audit**, read the complete [86-criterion matrix](references/wcag-22-matrix.md) and [coverage workflow](references/coverage.md). Evaluate all applicable A/AA criteria plus a separately labeled AAA review unless the user limits the levels. Review every matrix row; do not silently select only easy or automated checks. For focused requests, narrow locations/states as requested and identify the resulting coverage limit.
+For a **full WCAG 2.2 audit**, read the complete [86-criterion matrix](references/wcag-22-matrix.md) and [coverage workflow](references/coverage.md). Evaluate all applicable A/AA criteria plus a separately labeled AAA review unless the user limits the levels. Review every matrix row; do not silently select only easy or automated checks. For focused requests, narrow locations/states as requested and identify the resulting coverage limit.
+
+For another requested WCAG version, use that version's official criteria and a separate local evidence ledger. The bundled matrix and CSV utility cover **2.2 only**; do not label their output as a 2.0/2.1 evaluation or silently add later-version obligations. Include 4.1.1 in an earlier-version crosswalk where the applicable policy requires it, checking its current W3C guidance. Report optional 2.2 improvements separately.
 
 Read [web-checks.md](references/web-checks.md) for live or source testing, [design-review.md](references/design-review.md) for design inputs, and [healthcare.md](references/healthcare.md) for patient or clinical services. These practical guides supplement the full matrix.
 

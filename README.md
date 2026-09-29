@@ -57,7 +57,7 @@ Use accessibility-checks to connect our existing test:a11y command to Git,
 CI and Claude Code. Preserve the existing hook setup.
 ```
 
-The [full coverage workflow](skills/accessibility-audit/references/coverage.md) includes a standard-library script that creates and validates the criterion-by-state CSV ledger. The [complete matrix](skills/accessibility-audit/references/wcag-22-matrix.md) supplies a test prompt and evidence method for every criterion.
+The [full coverage workflow](skills/accessibility-audit/references/coverage.md) includes a standard-library script that creates and validates the criterion-by-state CSV ledger. The [complete matrix](skills/accessibility-audit/references/wcag-22-matrix.md) supplies a test prompt and evidence method for every WCAG 2.2 criterion. Audits against an earlier version use that version's official criteria and a separate ledger; the bundled generator is 2.2-only.
 
 For patient services, use the dedicated [healthcare skill](skills/healthcare-accessibility/SKILL.md) alongside the audit workflow. It adds clinical communication, document production, health literacy, privacy and vendor checks without changing the applicable WCAG target.
 
