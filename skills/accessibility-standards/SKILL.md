@@ -17,9 +17,9 @@ Help developers and designers choose a precise target and interpret requirements
 
 ## Interpret accurately
 
-Use the [normative WCAG 2.2 text](https://www.w3.org/TR/WCAG22/) for the requirement and its exceptions, and the [Understanding documents](https://www.w3.org/WAI/WCAG22/Understanding/) for explanation. Cite the exact criterion and level. Techniques, ARIA patterns, and design recommendations explain possible solutions; they do not create extra success criteria.
+Use the normative text and Understanding documents for the selected WCAG version. For the default 2.2 target, use the [normative WCAG 2.2 text](https://www.w3.org/TR/WCAG22/) for the requirement and its exceptions, and the [Understanding documents](https://www.w3.org/WAI/WCAG22/Understanding/) for explanation. Cite the exact criterion and level. Techniques, ARIA patterns, and design recommendations explain possible solutions; they do not create extra success criteria.
 
-When a boundary matters, preserve it:
+The following boundaries describe WCAG 2.2; check criterion availability in the selected version before applying them:
 
 - **Focus:** 2.4.7 requires visible keyboard focus (AA); 2.4.11 addresses a focused component being completely hidden by author-created content (AA). Full visibility under 2.4.12 and the quantitative indicator rules under 2.4.13 are AAA. A stronger design target can be recommended with that label.
 - **Target size:** 2.5.8 is AA and uses 24 by 24 CSS pixels with spacing and other exceptions. The 44 by 44 criterion, 2.5.5, is AAA. Do not report every smaller target as an automatic failure.

@@ -1,6 +1,6 @@
 # Web and component checks
 
-Use the rows relevant to the actual scope. For a formal AA evaluation, assess all applicable A/AA success criteria in the [normative WCAG 2.2 reference](https://www.w3.org/TR/WCAG22/); this shortlist is not a substitute. Include the complete user process and document technology/support assumptions.
+Use the rows relevant to the actual scope. For a formal AA evaluation, assess all applicable A/AA success criteria in the selected version's normative text. For WCAG 2.2, use the [normative WCAG 2.2 reference](https://www.w3.org/TR/WCAG22/); this shortlist is not a substitute. Apply the checks below only where the selected version includes the cited criterion, and label additional checks as recommendations. Include the complete user process and document technology/support assumptions.
 
 | Area | What to inspect and exercise | Useful criteria |
 |---|---|---|
