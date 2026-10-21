@@ -78,7 +78,7 @@ class ChecksTests(unittest.TestCase):
         self.assertEqual(self.cli("trust").returncode, 0)
         result = self.hook()
         self.assertEqual(result.returncode, 2)
-        self.assertIn("failed", result.stderr)
+        self.assertIn("edit was saved", result.stderr)
         self.assertEqual(self.cli("revoke").returncode, 0)
         self.assertEqual(self.hook().returncode, 0)
 

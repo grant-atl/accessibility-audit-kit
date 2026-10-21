@@ -132,7 +132,7 @@ def claude_hook():
         raise CheckError("Accessibility hook configuration changed. Review it and run trust again before automatic checks.")
     code = execute(root, config, timeout, quiet=True)
     if code:
-        raise CheckError("The configured accessibility check failed. Run checks.py run locally for details; do not claim the check passed.")
+        raise CheckError("The edit was saved, but the configured accessibility check now fails. Fix the cause or run checks.py run locally for details; do not claim the check passed.")
     return 0
 
 

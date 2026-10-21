@@ -18,6 +18,7 @@ All notable changes to this project are documented here. The format follows [Kee
 - End-to-end test that the bundled pre-commit hook blocks and allows real commits.
 - Complete 86-criterion audit of a live W3C demo page, with its ledger, compared against W3C's own evaluation.
 - Matrix guidance for row-by-row card grids (1.3.2), titles shared across a page set (2.4.2), and color-only inline links (1.4.1).
+- Hook feedback now states that the edit was saved, so agents do not report a post-edit check as having blocked the write.
 - Trigger and behavior evals for every skill in skill-creator format.
 - Audit report template and example scope file in `skills/accessibility-audit/assets/`.
 - `coverage.py --report` writes a Markdown coverage rollup that names criteria but never locations or evidence.

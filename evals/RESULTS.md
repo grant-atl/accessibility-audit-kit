@@ -58,6 +58,15 @@ The checks eval could not edit `.husky/pre-commit` in the headless harness, so t
 
 The target-size and reflow snippets flag some "after" pages too. Each was inspected and is a genuine failure, because the demo predates WCAG 2.1 and 2.2: a fixed 768 px layout scrolls horizontally at 320 px (1.4.10), and stacked 20 px-tall link lists have overlapping 24 px circles (2.5.8). No false positives were found. This run also showed that the inventory's image count mixed real problems with images merely needing review; those are now separate lists.
 
+## Plugin components exercised live (2026-10-21)
+
+| Component | How it was run | Result |
+|---|---|---|
+| `PostToolUse` hook | Headless Claude Code with `--plugin-dir`, in a trusted repo whose check fails when `index.html` lacks `lang` | An edit that kept the barrier produced the failure feedback; the fixing edit produced none. Claude first told the user the hook had "blocked the write", which a post-edit hook cannot do. The message now says the edit was saved, and a rerun reported it accurately. |
+| `accessibility-auditor` subagent | Headless audit of two locations (demo page and lab-results fixture) with answer keys removed; the coordinator was asked to delegate each location | Two subagents ran; their CSV slices merged on the first attempt; all 172 rows validated. All 21 answer-key criteria for the demo page were recorded as fail, or needs-review where a rendered test is required. Audited files were left unchanged. |
+| Claude plugin marketplace install | `claude plugin marketplace add` and `install` from GitHub with an isolated `CLAUDE_CONFIG_DIR` | Installed and enabled version 1.1.0 with all five skills, the subagent, the hook, and the scripts. |
+| Agent Skills CLI install | `npx skills add ... --skill '*' -a codex -a claude-code -g` with an isolated `HOME` | Installed all five skills for Codex and symlinked them for Claude Code, including scripts and browser snippets; the installed `contrast.py`, `coverage.py`, and `checks.py` ran correctly. |
+
 ## Full live-site audit compared with W3C's evaluation (2026-10-21)
 
 A complete 86-row ledger for the live W3C "before" home page, built with the kit's workflow and tools, is in [`examples/live-audit-w3c-demo`](../examples/live-audit-w3c-demo/REPORT.md). It was then compared with W3C's own published report for that page, on the 37 A/AA criteria the two share.
