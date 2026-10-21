@@ -143,5 +143,16 @@ class SnippetTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
 
 
+class ExampleTests(unittest.TestCase):
+    def test_live_audit_ledger_validates(self):
+        example = ROOT / "examples/live-audit-w3c-demo"
+        result = subprocess.run(
+            ["python3", str(ROOT / "skills/accessibility-audit/scripts/coverage.py"), "--scope", str(example / "scope.json"),
+             "--target", "AA", "--summary", str(example / "coverage.csv")], capture_output=True, text=True)
+        # 1 means a complete, valid ledger with failures; 2 would mean the ledger no longer matches the matrix.
+        self.assertEqual(result.returncode, 1, result.stderr)
+        self.assertIn("fail=18", result.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()

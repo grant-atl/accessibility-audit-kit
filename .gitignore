@@ -17,3 +17,7 @@ test-results/
 *.har
 *.log
 *storage-state*.json
+
+# Public worked examples only; real audit ledgers stay ignored.
+!examples/**/coverage.csv
+!examples/**/scope.json

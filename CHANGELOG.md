@@ -16,6 +16,8 @@ All notable changes to this project are documented here. The format follows [Kee
 - `evals/run_triggers.py` measures skill triggering with all five skills competing, isolated from user-level skills and MCP connectors.
 - External validation against W3C's Before and After Demonstration, run in CI as a non-blocking step.
 - End-to-end test that the bundled pre-commit hook blocks and allows real commits.
+- Complete 86-criterion audit of a live W3C demo page, with its ledger, compared against W3C's own evaluation.
+- Matrix guidance for row-by-row card grids (1.3.2), titles shared across a page set (2.4.2), and color-only inline links (1.4.1).
 - Trigger and behavior evals for every skill in skill-creator format.
 - Audit report template and example scope file in `skills/accessibility-audit/assets/`.
 - `coverage.py --report` writes a Markdown coverage rollup that names criteria but never locations or evidence.

@@ -58,6 +58,17 @@ The checks eval could not edit `.husky/pre-commit` in the headless harness, so t
 
 The target-size and reflow snippets flag some "after" pages too. Each was inspected and is a genuine failure, because the demo predates WCAG 2.1 and 2.2: a fixed 768 px layout scrolls horizontally at 320 px (1.4.10), and stacked 20 px-tall link lists have overlapping 24 px circles (2.5.8). No false positives were found. This run also showed that the inventory's image count mixed real problems with images merely needing review; those are now separate lists.
 
+## Full live-site audit compared with W3C's evaluation (2026-10-21)
+
+A complete 86-row ledger for the live W3C "before" home page, built with the kit's workflow and tools, is in [`examples/live-audit-w3c-demo`](../examples/live-audit-w3c-demo/REPORT.md). It was then compared with W3C's own published report for that page, on the 37 A/AA criteria the two share.
+
+| Pass | Agree with W3C | Notes |
+|---|---|---|
+| First pass | 29/37 | Missed 1.3.2 (row-by-row news grid) and 2.4.2 (title shared by every page); left 1.4.1 at needs-review where W3C applies F73. |
+| After guidance fixes | **32/37** | The other 5 are not contradictions: 2.4.6 is an interpretation difference documented in the report; 1.3.3 is needs-review; 2.4.5, 3.2.3, 3.2.4 need the other pages. |
+
+The kit also reported two WCAG 2.1 failures that the 2012 report predates: 1.4.10 and 2.5.3. The `coverage.py --merge` safeguard was exercised for real: it refused to overwrite recorded results during the correction.
+
 ## Trigger evals (2026-10-21)
 
 `run_triggers.py`, all five skills loaded together, isolated from user-level skills and settings.

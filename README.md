@@ -59,7 +59,7 @@ Open `http://127.0.0.1:8765/examples/demo-site/broken.html` and paste any snippe
 Use accessibility-audit to audit examples/demo-site/broken.html for WCAG 2.2 AA.
 ```
 
-Then compare its findings with the answer key. See a [sample audit report](examples/sample-report.md) produced this way.
+Then compare its findings with the answer key. See a [sample audit report](examples/sample-report.md) produced this way, and a [complete 86-criterion audit of a live W3C demo page](examples/live-audit-w3c-demo/REPORT.md) checked against W3C's own evaluation (32 of 37 shared criteria agree; the rest are documented).
 
 ## Install
 

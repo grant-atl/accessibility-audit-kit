@@ -38,6 +38,7 @@ When no browser is available, many barriers are still visible in markup and CSS.
 - Missing `lang`, generic `<title>`, styled `div` headings, images without `alt` (3.1.1, 2.4.2, 1.3.1, 1.1.1). Text drawn inside images or SVG files is also an image of text (1.4.5), separate from the missing alternative.
 - Dynamic text inserted without `role="status"` or `aria-live` (4.1.3; announcement still needs a screen reader).
 - Every color pair in the CSS, measured with `scripts/contrast.py` (1.4.3, 1.4.11).
+- Card or news grids whose markup lists all headlines, then all images, then all summaries (1.3.2), and identical `<title>` text across the page set (2.4.2).
 
 ## Running automated checks
 
