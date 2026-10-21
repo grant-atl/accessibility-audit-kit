@@ -50,4 +50,4 @@ Scripts must stay on the Python 3.9+ standard library, make no network calls, an
 
 1. Bump the version in `.claude-plugin/plugin.json`, both places in `.claude-plugin/marketplace.json`, and `metadata.version` in every `SKILL.md`. The test suite fails if they disagree.
 2. Finish the `CHANGELOG.md` entry and its compare link.
-3. Tag the release with `claude plugin tag .` and push the tag.
+3. Tag the release with `claude plugin tag . --push`, which creates `accessibility-audit-kit--v<version>` after checking that the manifests agree, then publish a GitHub release from the changelog entry.

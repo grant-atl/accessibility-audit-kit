@@ -59,7 +59,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 - Initial release: `accessibility-audit`, `accessibility-fix`, `accessibility-standards`, `accessibility-checks`, and `healthcare-accessibility` skills, the WCAG 2.2 coverage ledger utility, the opt-in check runner, and the Claude Code plugin with its `PostToolUse` hook.
 
-[1.1.0]: https://github.com/grant-atl/accessibility-audit-kit/compare/e6ef8bc...v1.1.0
+[1.1.0]: https://github.com/grant-atl/accessibility-audit-kit/compare/e6ef8bc...accessibility-audit-kit--v1.1.0
 [1.0.2]: https://github.com/grant-atl/accessibility-audit-kit/compare/58e0adb...e6ef8bc
 [1.0.1]: https://github.com/grant-atl/accessibility-audit-kit/compare/8f97fa8...58e0adb
 [1.0.0]: https://github.com/grant-atl/accessibility-audit-kit/commit/8f97fa8
