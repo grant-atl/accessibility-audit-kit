@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- Remediated version of broken.html. ANSWER-KEY.md maps each change to its barrier. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an appointment | Riverbend Clinic</title>
+<style>
+  body { margin: 0; font: 16px/1.4 system-ui, sans-serif; color: #222; background: #fff; }
+  :focus-visible { outline: 3px solid #0b5394; outline-offset: 2px; }
+  .skip { position: absolute; left: 8px; top: -48px; padding: 8px 12px; background: #fff; color: #0b5394; z-index: 1; }
+  .skip:focus { top: 8px; }
+  header { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding: 12px 24px; background: #0b5394; color: #fff; }
+  header .logo { font-weight: 700; font-size: 20px; }
+  header :focus-visible { outline-color: #fff; }
+  .social { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .social a { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; padding: 4px 8px; color: #fff; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 32px; margin: 8px 0 16px; }
+  h2 { font-size: 20px; margin: 0 0 8px; }
+  .hero { margin: 0; padding: 48px 40px; border-radius: 8px; background: #cfe2f3; color: #0b5394; font-size: 40px; line-height: 1.2; }
+  .muted { color: #767676; }
+  .card { border: 1px solid #8a8a8a; border-radius: 8px; padding: 16px; margin-top: 24px; }
+  .notice { background: #fff8e1; padding: 8px 12px; border-radius: 6px; }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  .schedule { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .slot { position: relative; }
+  .slot input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .slot span { display: block; min-width: 96px; padding: 10px; text-align: center; border: 2px solid #8a8a8a; border-radius: 6px; cursor: pointer; }
+  .slot input:checked + span { background: #e6f4ea; border-color: #0b5394; font-weight: 700; }
+  .slot input:checked + span::before { content: "✓ "; }
+  .slot input:focus-visible + span { outline: 3px solid #0b5394; outline-offset: 2px; }
+  .field { margin: 12px 0; }
+  label { display: block; font-weight: 600; margin-bottom: 4px; }
+  .hint { display: block; color: #555; font-size: 14px; }
+  input[type="text"], input[type="tel"] { font: inherit; padding: 8px; border: 1px solid #767676; border-radius: 6px; width: min(260px, 100%); box-sizing: border-box; }
+  input[aria-invalid="true"] { border: 2px solid #d93025; }
+  .error-text { color: #b3261e; font-size: 14px; margin-top: 4px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { font: inherit; padding: 10px 16px; background: #0b5394; color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+  .icon-btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; border: 1px solid #767676; background: #fff; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+  .status { margin-top: 12px; color: #188038; }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to main content</a>
+<header>
+  <div class="logo">Riverbend Clinic</div>
+  <nav aria-label="Social media">
+    <ul class="social">
+      <li><a href="#facebook">Facebook</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#linkedin">LinkedIn</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="content">
+  <h1>Book an appointment</h1>
+  <p class="hero">Same-day visits available</p>
+  <p class="muted">Appointments are confirmed by text message. Please arrive 10 minutes early.</p>
+
+  <p class="notice"><strong>Important:</strong> our Elm Street location is closed for renovation until next month. Patients booked there will be contacted to reschedule at Oak Avenue.</p>
+
+  <section class="card" aria-labelledby="time-heading">
+    <h2 id="time-heading">1. Choose a time</h2>
+    <fieldset>
+      <legend>Available times. The selected time shows a check mark.</legend>
+      <div class="schedule">
+        <label class="slot"><input type="radio" name="slot" value="Mon 9:00"><span>Mon 9:00</span></label>
+        <label class="slot"><input type="radio" name="slot" value="Tue 10:30" checked><span>Tue 10:30</span></label>
+        <label class="slot"><input type="radio" name="slot" value="Wed 1:15"><span>Wed 1:15</span></label>
+        <label class="slot"><input type="radio" name="slot" value="Thu 3:00"><span>Thu 3:00</span></label>
+        <label class="slot"><input type="radio" name="slot" value="Fri 4:45"><span>Fri 4:45</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <form class="card" id="booking" aria-labelledby="details-heading" novalidate>
+    <h2 id="details-heading">2. Your details</h2>
+    <div class="field">
+      <label for="name">Full name</label>
+      <input id="name" type="text" autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="dob">Date of birth</label>
+      <span class="hint" id="dob-hint">Format: MM/DD/YYYY</span>
+      <input id="dob" type="text" autocomplete="bday" inputmode="numeric" aria-describedby="dob-hint dob-error" aria-invalid="true">
+      <div class="error-text" id="dob-error">Error: enter your date of birth as MM/DD/YYYY, for example 04/17/1985.</div>
+    </div>
+    <div class="field">
+      <label for="phone">Mobile number</label>
+      <input id="phone" type="tel" autocomplete="tel">
+    </div>
+    <div class="actions">
+      <button class="btn" type="submit">Book now</button>
+      <button class="icon-btn" type="button" onclick="window.print()"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 2h10v5H5zM3 8h14v7h-3v3H6v-3H3z" fill="#555"/></svg>Print</button>
+    </div>
+    <div class="status" id="status" role="status"></div>
+  </form>
+</main>
+
+<script>
+  document.getElementById('booking').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var slot = document.querySelector('input[name="slot"]:checked');
+    document.getElementById('status').textContent = 'Appointment saved for ' + slot.value + '.';
+  });
+</script>
+</body>
+</html>

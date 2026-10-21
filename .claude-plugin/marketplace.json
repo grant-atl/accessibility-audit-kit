@@ -1,12 +1,29 @@
 {
   "name": "accessibility-audit-kit",
-  "description": "Accessibility audit and remediation skills with optional regression-check hooks",
-  "owner": { "name": "Accessibility Audit Kit contributors" },
+  "owner": {
+    "name": "grant-atl",
+    "url": "https://github.com/grant-atl"
+  },
+  "metadata": {
+    "description": "Accessibility audit, remediation, and regression-check tooling for Claude Code",
+    "version": "1.1.0",
+    "homepage": "https://github.com/grant-atl/accessibility-audit-kit#readme"
+  },
   "plugins": [
     {
       "name": "accessibility-audit-kit",
       "source": "./",
-      "description": "Accessibility skills with optional Git, CI, and Claude Code checks"
+      "description": "Evidence-based WCAG 2.2 audits, fixes, standards mapping, healthcare reviews, and opt-in Git/CI/Claude Code checks",
+      "version": "1.1.0",
+      "author": {
+        "name": "grant-atl",
+        "url": "https://github.com/grant-atl"
+      },
+      "homepage": "https://github.com/grant-atl/accessibility-audit-kit#readme",
+      "repository": "https://github.com/grant-atl/accessibility-audit-kit",
+      "license": "MIT",
+      "category": "development",
+      "keywords": ["accessibility", "a11y", "wcag", "audit", "design-review", "healthcare"]
     }
   ]
 }

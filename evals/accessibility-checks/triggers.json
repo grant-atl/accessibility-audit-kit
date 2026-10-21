@@ -1,0 +1,38 @@
+[
+  {
+    "query": "add an accessibility check to our pre-commit hook using npm run test:a11y",
+    "should_trigger": true
+  },
+  {
+    "query": "set up axe in our GitHub Actions workflow so accessibility regressions fail the build",
+    "should_trigger": true
+  },
+  {
+    "query": "can Claude run our a11y tests automatically after it edits files in this repo?",
+    "should_trigger": true
+  },
+  {
+    "query": "wire our existing playwright accessibility tests into CI and a git hook without replacing husky",
+    "should_trigger": true
+  },
+  {
+    "query": "run the configured accessibility checks for this project and tell me what failed",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you do a full WCAG 2.2 AA audit of our marketing site?",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the focus trap in components/Modal.tsx",
+    "should_trigger": false
+  },
+  {
+    "query": "set up eslint and prettier pre-commit hooks",
+    "should_trigger": false
+  },
+  {
+    "query": "add unit tests for the date parsing utility",
+    "should_trigger": false
+  }
+]

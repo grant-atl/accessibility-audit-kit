@@ -1,0 +1,50 @@
+[
+  {
+    "query": "Can you do a full WCAG 2.2 AA audit of our marketing site? Staging is at https://staging.example.test",
+    "should_trigger": true
+  },
+  {
+    "query": "audit examples/demo-site/broken.html for accessibility issues and give me a prioritized list",
+    "should_trigger": true
+  },
+  {
+    "query": "review these Figma frames for accessibility before we hand them to engineering \u2014 contrast, focus states, target sizes",
+    "should_trigger": true
+  },
+  {
+    "query": "is our checkout flow usable with VoiceOver and keyboard only? test it end to end and tell me what breaks",
+    "should_trigger": true
+  },
+  {
+    "query": "a11y review of the new pricing page please, include alt text and heading structure",
+    "should_trigger": true
+  },
+  {
+    "query": "We got a complaint that the signup form doesn't work with a screen reader. Can you check every state of it?",
+    "should_trigger": true
+  },
+  {
+    "query": "make me an accessibility evidence ledger for these 12 pages so we can track coverage",
+    "should_trigger": true
+  },
+  {
+    "query": "What's the difference between WCAG 2.1 and 2.2? Which one does the ADA Title II rule use?",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the focus trap in components/Modal.tsx \u2014 focus escapes to the page behind it",
+    "should_trigger": false
+  },
+  {
+    "query": "add an accessibility check to our pre-commit hook using npm run test:a11y",
+    "should_trigger": false
+  },
+  {
+    "query": "audit our npm dependencies for security vulnerabilities",
+    "should_trigger": false
+  },
+  {
+    "query": "review this PR for performance regressions in the React rendering path",
+    "should_trigger": false
+  }
+]

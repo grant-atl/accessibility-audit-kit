@@ -1,0 +1,14 @@
+{
+  "name": "eval-husky-project",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "test:a11y": "playwright test tests/a11y.spec.js",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.0",
+    "@playwright/test": "1.49.1",
+    "husky": "9.1.6"
+  }
+}

@@ -1,9 +1,26 @@
 {
   "name": "accessibility-audit-kit",
-  "version": "1.0.2",
-  "description": "Accessibility audit, remediation, standards, and opt-in check skills for developers and designers",
-  "author": { "name": "Accessibility Audit Kit contributors" },
+  "version": "1.1.0",
+  "description": "Evidence-based WCAG 2.2 accessibility audits, remediation, standards guidance, healthcare journey reviews, and opt-in regression checks for developers and designers.",
+  "author": {
+    "name": "grant-atl",
+    "url": "https://github.com/grant-atl"
+  },
+  "homepage": "https://github.com/grant-atl/accessibility-audit-kit#readme",
   "repository": "https://github.com/grant-atl/accessibility-audit-kit",
   "license": "MIT",
-  "keywords": ["accessibility", "wcag", "audit", "design", "hooks"]
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "wcag-2.2",
+    "audit",
+    "screen-reader",
+    "voiceover",
+    "keyboard",
+    "contrast",
+    "design-review",
+    "healthcare",
+    "hooks"
+  ]
 }

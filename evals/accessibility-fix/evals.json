@@ -1,0 +1,33 @@
+{
+  "skill_name": "accessibility-fix",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Copy examples/demo-site/broken.html to a scratch file and remediate the booking form part: the time slots, the three fields, the Book now control and the status message. Preserve the visual design where you can.",
+      "files": [
+        "examples/demo-site/broken.html"
+      ],
+      "expected_output": "A remediated form comparable to fixed.html for those parts.",
+      "expectations": [
+        "Replaces clickable slot divs with native radio inputs or an equivalent APG-conformant pattern with keyboard support",
+        "Adds associated visible labels to all three inputs and appropriate autocomplete tokens",
+        "Replaces the Book now div with a native button whose accessible name includes 'Book now'",
+        "Removes positive tabindex values",
+        "Adds a status role or live region for the saved message without moving focus",
+        "Does not add an overlay widget or suppress validation to make checks pass",
+        "States what remains to verify manually, such as screen-reader announcements"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our muted text color #a0a0a0 on white fails contrast. Suggest the closest passing color for normal body text and prove it passes.",
+      "expected_output": "Uses contrast.py with --target 4.5 and reports a passing color near #767676.",
+      "expectations": [
+        "Measures the original as about 2.6:1",
+        "Uses the bundled contrast.py rather than estimating",
+        "Proposes a color at or darker than about #767676 with a ratio of at least 4.5:1",
+        "Does not round a ratio below 4.5 up to a pass"
+      ]
+    }
+  ]
+}

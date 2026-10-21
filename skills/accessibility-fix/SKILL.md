@@ -1,7 +1,10 @@
 ---
 name: accessibility-fix
-description: Fix verified accessibility barriers in website or UI component code and design specifications. Use for semantic markup, keyboard/focus behavior, accessible forms and authentication, contrast, responsive layouts, and regression checks while preserving product behavior.
+description: "Fix accessibility problems in website or UI component code and in design specifications. Use whenever the user asks to fix, remediate, or repair an accessibility barrier: focus traps and focus escaping modals or dialogs, keyboard operation, accessible names, semantic markup, forms and error messages, status announcements, contrast and color tokens, target size, and responsive layouts. Repairs the shared cause, preserves product behavior, and verifies the result with regression checks."
 license: MIT
+metadata:
+  author: grant-atl
+  version: "1.1.0"
 ---
 
 # Accessibility fix
@@ -23,7 +26,7 @@ Repair the barrier at its shared cause, preserve the user's task, and verify the
 - **Forms:** keep instructions and errors associated with the correct control, set invalid state only when appropriate, preserve valid entries, and make error recovery reachable. A focused summary or tested announcement strategy should avoid duplicate speech. Do not show every field as invalid before user interaction without reason.
 - **Authentication and time:** support password managers, paste/autofill and accessible recovery/MFA mechanisms. Avoid unaided cognitive challenges. Follow applicable timeout extension/alternative requirements and verify exceptions. Do not remove security controls or store sensitive form data persistently to simplify accessibility.
 - **Status and toggles:** announce meaningful asynchronous status without stealing focus. A toggle button with `aria-pressed` normally keeps a stable label and changes its state. An action button with changing text, such as “Mute”/“Unmute,” can instead communicate the next action; do not combine patterns inconsistently. Keep actual state and exposed state synchronized. [W3C button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
-- **Visual changes:** measure contrast against actual backgrounds/states. Preserve visible focus and prevent complete obstruction at AA; quantitative Focus Appearance is AAA. Respect target-size spacing/exceptions rather than mechanically inflating all inline links. Preserve zoom, text resizing, reflow and user text spacing. Label optional enhancements honestly.
+- **Visual changes:** measure contrast against actual backgrounds/states by running this skill's bundled `scripts/contrast.py` (path relative to the skill directory) for every ratio you report or change, and quote its output. `--target 4.5` suggests the nearest passing foreground. Do not compute ratios by hand; borderline values are easy to misround. Preserve visible focus and prevent complete obstruction at AA; quantitative Focus Appearance is AAA. Respect target-size spacing/exceptions rather than mechanically inflating all inline links. Preserve zoom, text resizing, reflow and user text spacing. Label optional enhancements honestly.
 - **Images, tables and media:** write alternatives for purpose in context; mark genuinely decorative images appropriately. Use headers/relationships for data tables. Supply applicable captions, transcripts and descriptions; do not assume a transcript replaces every media requirement.
 - **Design handoff:** specify labels/roles, states, keyboard path, focus placement, responsive behavior, announcements and acceptance checks. A design annotation is intended behavior until the implementation is tested.
 

@@ -1,0 +1,5 @@
+[
+  {"location": "https://example.test/", "states": ["desktop-initial", "mobile-menu-open"]},
+  {"location": "https://example.test/contact", "states": ["initial", "validation-error", "success"]},
+  {"location": "component:Dialog", "states": ["open", "nested-focus", "closed-focus-return"]}
+]

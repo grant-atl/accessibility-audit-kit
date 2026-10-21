@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- Deliberately inaccessible demo. Every barrier is listed in ANSWER-KEY.md. Do not copy these patterns. -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page</title>
+<style>
+  body { margin: 0; font: 16px/1.4 system-ui, sans-serif; color: #222; background: #fff; }
+  * :focus { outline: none; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: #0b5394; color: #fff; }
+  header .logo { font-weight: 700; font-size: 20px; }
+  .social a { display: inline-block; width: 16px; height: 16px; margin-left: 2px; background: #fff; border-radius: 3px; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px; }
+  .hero { width: 100%; height: auto; border-radius: 8px; }
+  .muted { color: #a0a0a0; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 24px; }
+  .notice { height: 46px; overflow: hidden; background: #fff8e1; padding: 8px 12px; border-radius: 6px; }
+  .schedule { width: 900px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; }
+  .slot { padding: 10px; text-align: center; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; }
+  .slot.selected { background: #e6f4ea; border-color: #e6f4ea; }
+  input { font: inherit; padding: 8px; border: 1px solid #e3e3e3; border-radius: 6px; width: 260px; }
+  .error input { border-color: #d93025; }
+  .btn { display: inline-block; padding: 10px 16px; background: #0b5394; color: #fff; border-radius: 6px; cursor: pointer; }
+  .icon-btn { border: 0; background: none; width: 32px; height: 32px; cursor: pointer; }
+  .status { margin-top: 12px; color: #188038; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Riverbend Clinic</div>
+  <nav class="social">
+    <a href="#facebook" aria-hidden="true"></a><a href="#instagram"></a><a href="#linkedin"></a>
+  </nav>
+</header>
+
+<main>
+  <div style="font-size: 32px; font-weight: 700; margin: 8px 0 16px;">Book an appointment</div>
+  <img class="hero" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='200'><rect width='960' height='200' fill='%23cfe2f3'/><text x='40' y='115' font-size='40' font-family='sans-serif' fill='%230b5394'>Same-day visits available</text></svg>">
+  <p class="muted">Appointments are confirmed by text message. Please arrive 10 minutes early.</p>
+
+  <div class="notice">Important: our Elm Street location is closed for renovation until next month. Patients booked there will be contacted to reschedule at Oak Avenue.</div>
+
+  <div class="card">
+    <div style="font-size: 20px; font-weight: 700;">1. Choose a time</div>
+    <p>Pick a green slot.</p>
+    <div class="schedule">
+      <div class="slot">Mon 9:00</div>
+      <div class="slot selected">Tue 10:30</div>
+      <div class="slot">Wed 1:15</div>
+      <div class="slot">Thu 3:00</div>
+      <div class="slot">Fri 4:45</div>
+    </div>
+  </div>
+
+  <form class="card" id="booking" novalidate>
+    <div style="font-size: 20px; font-weight: 700;">2. Your details</div>
+    <p><input id="name" placeholder="Full name" tabindex="2"></p>
+    <p class="error"><input id="dob" placeholder="Date of birth" tabindex="1"></p>
+    <p><input id="phone" type="tel" placeholder="Mobile number"></p>
+    <div class="btn" id="book" aria-label="Submit form" onclick="book()">Book now</div>
+    <button class="icon-btn" type="button" onclick="window.print()"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M5 2h10v5H5zM3 8h14v7h-3v3H6v-3H3z" fill="#555"/></svg></button>
+    <div class="status" id="status"></div>
+  </form>
+</main>
+
+<script>
+  document.querySelectorAll('.slot').forEach(function (slot) {
+    slot.addEventListener('click', function () {
+      document.querySelectorAll('.slot').forEach(function (s) { s.classList.remove('selected'); });
+      slot.classList.add('selected');
+    });
+  });
+  function book() {
+    document.getElementById('status').textContent = 'Appointment saved for ' + document.querySelector('.slot.selected').textContent + '.';
+  }
+</script>
+</body>
+</html>

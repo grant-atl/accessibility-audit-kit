@@ -1,0 +1,20 @@
+{
+  "skill_name": "healthcare-accessibility",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review evals/files/lab-results.html for accessibility and rewrite it. It shows test name, value, units, reference range and an abnormal flag shown only as a colored dot.",
+      "expected_output": "Restructures the table semantically and conveys abnormal status in text while preserving every clinical value.",
+      "expectations": [
+        "Uses table headers or equivalent semantics associating value, unit, range and status",
+        "Conveys abnormal status in text, not color alone (1.4.1)",
+        "Preserves every supplied value, unit and reference range exactly",
+        "Does not add a diagnosis, interpretation or new reference range",
+        "Recommends clinical-owner review for any wording changes to clinical content"
+      ],
+      "files": [
+        "evals/files/lab-results.html"
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@ Discover routes from the app and sitemap when available; traverse navigation and
 
 Use the browser/platform tools available. Preserve the user's scope and existing credentials without exporting them. If access, rate limits or tooling prevent full coverage, enumerate the remaining locations and test methods. Never shrink the stated scope to make the result appear complete.
 
-Create a local JSON scope file using this structure (replace the example locations and states):
+Create a local JSON scope file using this structure, or copy [the bundled example](../assets/scope.example.json) and replace its locations and states:
 
 ```json
 [
@@ -29,6 +29,16 @@ python3 scripts/coverage.py --scope scope.json --output coverage.csv --target AA
 
 This creates every criterion/state row as `not-tested`, including AAA as supplemental under an AA target. It refuses to overwrite an existing ledger. Keep the scope, ledger, screenshots and reports in private working storage by default, outside public version control. They may disclose private URLs or personal data.
 
+## Merge parallel results
+
+When slices of the scope are tested separately, for example by the `accessibility-auditor` subagent, save each returned CSV block as its own private file with the header `location,state,criterion,status,evidence,environment,notes`, then merge:
+
+```sh
+python3 scripts/coverage.py --scope scope.json --target AA --merge coverage.csv --input slice-home.csv slice-contact.csv
+```
+
+Use the same scope file and `--target` that created the ledger. The merge is all-or-nothing. It rejects rows outside the scope, unknown criteria, duplicates across slices, finished rows without evidence, and any row that would overwrite a different recorded result. It neutralizes spreadsheet formulas in free text and rewrites the ledger atomically. Resolve conflicts in the ledger by hand, then merge again.
+
 ## Fill evidence, not guesses
 
 Statuses are `not-tested`, `pass`, `fail`, `not-applicable`, `blocked`, and `needs-review`. A pass/fail needs actual observed evidence; not-applicable needs a specific reason. `blocked` and `needs-review` remain unresolved. Record viewport/browser/OS, assistive technology and versions as relevant; do not invent them. Use the notes field for user impact, fix, retest and private evidence references. Reuse shared evidence only when you have verified the same implementation and context apply, and identify that basis.
@@ -40,6 +50,14 @@ Summarize and validate against the same scope file:
 ```sh
 python3 scripts/coverage.py --scope scope.json --summary coverage.csv --target AA
 ```
+
+To also write a Markdown rollup for the report's coverage section, add `--report`:
+
+```sh
+python3 scripts/coverage.py --scope scope.json --summary coverage.csv --target AA --report coverage-summary.md
+```
+
+The rollup lists status totals and every criterion that still has failing or unresolved rows. It names criteria only, never locations or evidence, and refuses to overwrite an existing file.
 
 The summary rejects dropped/duplicate rows, wrong criterion metadata and completed rows without evidence. It prints totals without printing private locations. Exit 0 means all target-level rows have evidence and are pass/not-applicable; exit 1 means target failures or unresolved rows; exit 2 means invalid input. AAA totals remain visible even when the target is AA. This is a ledger validation, **not a test engine or certification**: it cannot verify that supplied evidence is truthful or that the inventory includes the entire site.
 

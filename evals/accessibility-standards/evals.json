@@ -1,0 +1,27 @@
+{
+  "skill_name": "accessibility-standards",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Is a 44x44 touch target required for WCAG 2.2 AA? Our designers say yes.",
+      "expected_output": "Explains 2.5.8 AA (24x24 with spacing and other exceptions) versus 2.5.5 AAA (44x44).",
+      "expectations": [
+        "States that 2.5.8 at AA uses 24 by 24 CSS pixels",
+        "Mentions the spacing exception and at least one other exception",
+        "Identifies 44 by 44 as 2.5.5, Level AAA",
+        "Allows 44x44 as a design goal while not calling it the AA requirement"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're a city government of 30,000 people. What web accessibility rule applies and what's our deadline?",
+      "expected_output": "Maps to ADA Title II with WCAG 2.1 AA, cites the smaller-entity date, and tells the user to verify with DOJ.",
+      "expectations": [
+        "Identifies ADA Title II and WCAG 2.1 Level AA as the technical standard",
+        "Uses the population threshold, not employee count",
+        "Gives the later smaller-entity date from the dated reference, labeled with its verification date",
+        "Advises checking the current DOJ source and does not present the answer as legal advice"
+      ]
+    }
+  ]
+}

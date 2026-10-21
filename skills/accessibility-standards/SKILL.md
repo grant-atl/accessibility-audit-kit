@@ -1,7 +1,10 @@
 ---
 name: accessibility-standards
-description: Select and explain accessibility standards, WCAG versions and success criteria, or map jurisdiction and procurement requirements to an engineering target. Use for standards questions and audit scoping; not as a substitute for testing a site or implementing fixes.
+description: "Select and explain accessibility standards: WCAG versions, levels, and success criteria, or the requirements behind ADA, Section 508, Section 504, EN 301 549, the EAA, and similar rules. Use for standards questions, choosing an engineering target, and scoping an audit. Not a substitute for testing a site or implementing fixes, and not legal advice."
 license: MIT
+metadata:
+  author: grant-atl
+  version: "1.1.0"
 ---
 
 # Accessibility standards
@@ -25,7 +28,7 @@ The following boundaries describe WCAG 2.2; check criterion availability in the 
 - **Target size:** 2.5.8 is AA and uses 24 by 24 CSS pixels with spacing and other exceptions. The 44 by 44 criterion, 2.5.5, is AAA. Do not report every smaller target as an automatic failure.
 - **Dragging:** 2.5.7 requires a single-pointer alternative unless an exception applies. A keyboard alternative alone does not satisfy that particular criterion.
 - **Authentication:** 3.3.8 (AA) permits defined alternatives or assistance and specific exceptions. Do not characterize all passwords, MFA, or CAPTCHAs as categorically prohibited; examine the actual step and available assistance.
-- **Versions:** WCAG 2.2 removes 4.1.1 Parsing. An earlier incorporated standard may still require reporting it; check the applicable policy. Broken semantics can fail other criteria regardless.
+- **Versions:** WCAG 2.2 removes 4.1.1 Parsing. An earlier incorporated standard may still require reporting it; check the applicable policy. So 2.2 AA is not a strict superset of 2.1 AA: when recommending 2.2 AA as the engineering target for a 2.1-based legal rule, say that 4.1.1 may still need to be evaluated and reported. Broken semantics can fail other criteria regardless.
 - **Conformance:** complete web processes are already required in WCAG 2. A passing scanner, selected component, or sampled page set cannot by itself establish product-wide conformance.
 - **Drafts:** WCAG 3 is work in progress, not the production baseline. Do not convert proposed harm categories, reporting tiers, or experimental contrast methods into WCAG 2 AA obligations.
 

@@ -1,0 +1,42 @@
+[
+  {
+    "query": "What's the difference between WCAG 2.1 and 2.2? Which one does the ADA Title II rule use?",
+    "should_trigger": true
+  },
+  {
+    "query": "We're a county hospital with 80k residents. What accessibility rules apply to our patient portal and by when?",
+    "should_trigger": true
+  },
+  {
+    "query": "Is 44x44 pixels required for touch targets under WCAG AA?",
+    "should_trigger": true
+  },
+  {
+    "query": "does the European Accessibility Act apply to our e-commerce site if we sell into Germany?",
+    "should_trigger": true
+  },
+  {
+    "query": "explain success criterion 2.4.11 Focus Not Obscured and how it differs from 2.4.12",
+    "should_trigger": true
+  },
+  {
+    "query": "our procurement contract says Section 508 \u2014 what WCAG level does that map to?",
+    "should_trigger": true
+  },
+  {
+    "query": "audit examples/demo-site/broken.html for accessibility issues",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the contrast on our primary button",
+    "should_trigger": false
+  },
+  {
+    "query": "what's the GDPR deadline for responding to a data subject request?",
+    "should_trigger": false
+  },
+  {
+    "query": "explain the difference between CSS grid and flexbox",
+    "should_trigger": false
+  }
+]

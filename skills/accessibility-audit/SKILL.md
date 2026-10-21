@@ -1,7 +1,11 @@
 ---
 name: accessibility-audit
-description: Audit websites, pages, user journeys, UI components, and designs against all WCAG 2.2 criteria. Use for full accessibility audits or focused reviews covering contrast, text resizing, keyboard/focus, screen readers, images, metadata, forms and media. Produce criterion-by-state evidence and developer/designer handoffs, including healthcare.
+description: "Audit websites, pages, user journeys, UI components, and design files against WCAG 2.2: all 86 criteria, with an AA target by default. Use for full or focused accessibility (a11y) audits and reviews, for testing whether a flow works end to end with only a keyboard or with VoiceOver and other screen readers, and for building a WCAG coverage or evidence ledger. Covers contrast, text resizing and reflow, focus, alt text, page titles and language, forms, authentication, and media. Produces prioritized findings and developer and designer handoffs."
 license: MIT
+compatibility: "Works with any agent. The coverage ledger utility needs Python 3.9+ (standard library only). Live testing uses whatever browser, design, and assistive-technology tools the agent has."
+metadata:
+  author: grant-atl
+  version: "1.1.0"
 ---
 
 # Accessibility audit
@@ -25,7 +29,7 @@ For a **full WCAG 2.2 audit**, read the complete [86-criterion matrix](reference
 
 For another requested WCAG version, use that version's official criteria and a separate local evidence ledger. The bundled matrix and CSV utility cover **2.2 only**; do not label their output as a 2.0/2.1 evaluation or silently add later-version obligations. Include 4.1.1 in an earlier-version crosswalk where the applicable policy requires it, checking its current W3C guidance. Report optional 2.2 improvements separately.
 
-Read [web-checks.md](references/web-checks.md) for live or source testing, [design-review.md](references/design-review.md) for design inputs, and [healthcare.md](references/healthcare.md) for patient or clinical services. These practical guides supplement the full matrix.
+Read [measurement-tools.md](references/measurement-tools.md) before measuring contrast, target size, text spacing or reflow; run the bundled `scripts/contrast.py` and `assets/browser/` snippets (paths relative to this skill's directory) rather than estimating or computing by hand. For source-only reviews, work through the source checklist in web-checks.md. Read [web-checks.md](references/web-checks.md) for live or source testing, [design-review.md](references/design-review.md) for design inputs, and [healthcare.md](references/healthcare.md) for patient or clinical services. These practical guides supplement the full matrix.
 
 ## Inspect the real experience
 
@@ -35,11 +39,13 @@ Read [web-checks.md](references/web-checks.md) for live or source testing, [desi
 4. **Connect evidence to impact.** Record location, state, reproduction, observed behavior, affected task, and applicable criterion. Verify criterion numbers and levels against [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/) or its linked Understanding pages when uncertain. Distinguish confirmed failures from suspected issues, incomplete automated results, and recommended improvements. A scanner severity is evidence, not the final task priority.
 5. **Group root causes.** One shared field or dialog bug may affect many pages. Report the shared defect with representative occurrences and describe the reach actually inspected. Prioritize task blockers, safety/privacy risks, and frequent interactions before isolated friction. These priorities are local triage labels, not WCAG levels.
 
+**Split large scopes.** When the inventory is too large to test well in one pass and your agent supports subagents, divide it into slices of locations and states and delegate each slice. In Claude Code with the plugin installed, use the `accessibility-auditor` subagent; give each one its slice from the scope file, the target, the available tools and environment, and the matrix path. Save each returned CSV block to its own private file and merge them with `scripts/coverage.py --scope scope.json --target AA --merge coverage.csv --input slice-*.csv` (use the same scope and target that created the ledger), which rejects rows outside the scope, missing evidence, and conflicts. Recheck any `pass` or `fail` whose evidence is thin, and deduplicate findings by shared cause before reporting. Never let delegation shrink the declared scope.
+
 Use the [W3C evaluation guidance](https://www.w3.org/WAI/test-evaluate/) for broader audits. Plan disability-inclusive user testing when the scope warrants it; never imply a model substitutes for participants or assistive technology.
 
 ## Return an actionable audit
 
-Lead with the most consequential verified barrier. Keep a small review short; for a larger audit use this structure:
+Lead with the most consequential verified barrier. Keep a small review short; for a larger audit use this structure. When the user wants a written report, start from [the report template](assets/report-template.md) and fill the coverage section from `scripts/coverage.py --report`.
 
 - **Scope and evidence:** pages/frames/files, journey states, target, date, browser/viewport/tools actually used, and sampled or excluded areas.
 - **Findings:** ID; task priority; confirmed/suspected status; location and state; reproduction; observed barrier and user impact; WCAG criterion and level or “best practice”; smallest credible fix; acceptance check.

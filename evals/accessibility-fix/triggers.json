@@ -1,0 +1,42 @@
+[
+  {
+    "query": "fix the focus trap in components/Modal.tsx \u2014 focus escapes to the page behind it",
+    "should_trigger": true
+  },
+  {
+    "query": "our audit found the date picker isn't keyboard operable; please fix it in the shared DatePicker component",
+    "should_trigger": true
+  },
+  {
+    "query": "the error messages on the login form aren't announced to screen readers, can you make them accessible",
+    "should_trigger": true
+  },
+  {
+    "query": "make the icon-only buttons in Toolbar.vue have proper accessible names",
+    "should_trigger": true
+  },
+  {
+    "query": "remediate examples/demo-site/broken.html so it passes the planted issues",
+    "should_trigger": true
+  },
+  {
+    "query": "Our muted gray text fails contrast. Update the design tokens to the nearest passing color without changing the look too much.",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you do a full WCAG 2.2 AA audit of our marketing site?",
+    "should_trigger": false
+  },
+  {
+    "query": "Which WCAG criteria cover target size, and what's the AA threshold?",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the failing unit test in utils/date.test.ts",
+    "should_trigger": false
+  },
+  {
+    "query": "refactor the Modal component to use React portals for performance",
+    "should_trigger": false
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "skill_name": "accessibility-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit examples/demo-site/broken.html for WCAG 2.2 AA. Work from the source and, if a browser is available, the rendered page. Give prioritized findings and say what you could not test.",
+      "files": [
+        "examples/demo-site/broken.html"
+      ],
+      "expected_output": "A prioritized findings list covering most of ANSWER-KEY.md B1-B22, with criteria and levels, plus explicit untested items.",
+      "expectations": [
+        "Finds the missing html lang (3.1.1) and the non-descriptive title (2.4.2)",
+        "Finds that time slots and Book now are clickable divs that keyboard users cannot operate (2.1.1, 4.1.2)",
+        "Finds placeholder-only fields with no labels (3.3.2 or 1.3.1)",
+        "Reports the #a0a0a0 muted text contrast as about 2.6:1, failing 1.4.3",
+        "Finds the 16x16 social links as a 2.5.8 target-size problem and does not cite 44x44 as the AA requirement",
+        "Finds outline:none removing focus visibility (2.4.7)",
+        "Labels AAA items, if any, separately from AA failures",
+        "States which checks were not performed, such as screen-reader output, rather than claiming them",
+        "Does not claim the page is or will be WCAG conformant"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We need a full WCAG 2.2 audit of a 3-page site: /, /contact (initial and error states), /pricing. Set up the coverage ledger and tell me how many rows it has and how the AA target is counted.",
+      "expected_output": "Creates a scope file and runs coverage.py to build the ledger.",
+      "expectations": [
+        "Creates a scope JSON with 4 location/state pairs",
+        "Runs scripts/coverage.py --output to create the ledger rather than writing rows by hand",
+        "Reports 344 rows (4 x 86), with 220 target rows (4 x 55) under an AA target",
+        "Explains AAA rows are supplemental and not AA failures",
+        "Keeps the scope and ledger out of public version control or warns about private URLs"
+      ]
+    }
+  ]
+}

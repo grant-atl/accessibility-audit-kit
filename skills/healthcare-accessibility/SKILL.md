@@ -1,7 +1,10 @@
 ---
 name: healthcare-accessibility
-description: Audit, design, or remediate accessibility in healthcare portals, patient and caregiver journeys, clinician workflows, telehealth, clinical results, consent, and generated medical documents. Use when healthcare-specific care access, communication, privacy, or clinical meaning affects the work; not for medical advice or a generic page-only audit.
+description: "Audit, design, or remediate accessibility in healthcare products: patient portals, caregiver and proxy access, clinician workflows, scheduling, intake, consent, telehealth, clinical results, and generated medical documents. Use when care access, clinical meaning, effective communication, or patient privacy affects the work. Not for medical advice or a generic page-only audit."
 license: MIT
+metadata:
+  author: grant-atl
+  version: "1.1.0"
 ---
 
 # Healthcare accessibility
@@ -19,7 +22,7 @@ Use WCAG 2.2 AA as the engineering default unless the user specifies another tar
 ## Preserve care, meaning, and privacy
 
 - Use synthetic patients and an authorized sandbox for bookings, messages, refills, payments, signatures, and consent. An audit does not authorize real care actions, chart changes, account impersonation, or communications to clinicians.
-- Preserve supplied test names, results, units, reference ranges, source timestamps, uncertainty, and clinician instructions. Improve structure and explanations without inventing diagnoses, normal ranges, dose changes, urgency, or treatment recommendations. Flag ambiguous clinical copy for the clinical owner.
+- Preserve supplied test names, results, units, reference ranges, source timestamps, uncertainty, and clinician instructions. Improve structure and explanations without inventing diagnoses, normal ranges, dose changes, urgency, or treatment recommendations. Flag ambiguous clinical copy for the clinical owner. Whenever you add or change words around clinical content, such as status labels like "Abnormal", renamed column headings, or instructions, list each change in the handoff and ask the clinical content owner to confirm it, including any meaning you inferred from a color or icon.
 - Give AT users equivalent information and choice. Avoid unnecessary sensitive information in notifications and automatic announcements, but do not strip the detail needed to distinguish patients, results, recipients, or actions. Check both audible disclosure and the ability to access the full information deliberately.
 - Keep role boundaries and authentication intact. Accessible recovery, proxy access, and timeout handling must not bypass identity checks, expose another record, or store sensitive drafts insecurely.
 - Keep PHI, credentials, tokens, raw recordings, real patient screenshots, and sensitive document metadata out of public findings, fixtures, commits, and uploads. Use redacted or synthetic evidence while preserving enough detail to reproduce the defect.

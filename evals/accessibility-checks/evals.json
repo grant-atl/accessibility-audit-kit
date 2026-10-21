@@ -1,0 +1,20 @@
+{
+  "skill_name": "accessibility-checks",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "In evals/files/husky-project: our npm script test:a11y runs axe through Playwright. Set it up as a pre-commit check and a CI step. We already use husky.",
+      "expected_output": "Adds the runner to husky rather than replacing hooks, creates the config, and adds a CI step.",
+      "expectations": [
+        "Inspects the existing husky setup before changing hooks",
+        "Adds the check to husky instead of setting core.hooksPath",
+        "Creates .accessibility-checks.json with the command as an argument array",
+        "Does not enable claude:true or run trust without being asked",
+        "Says that passing checks do not establish WCAG conformance"
+      ],
+      "files": [
+        "evals/files/husky-project/package.json"
+      ]
+    }
+  ]
+}

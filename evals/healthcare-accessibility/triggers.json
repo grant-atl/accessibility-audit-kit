@@ -1,0 +1,38 @@
+[
+  {
+    "query": "audit our patient portal from appointment booking through telehealth and lab results for accessibility",
+    "should_trigger": true
+  },
+  {
+    "query": "are our after-visit summary PDFs accessible to blind patients? we generate them from a template",
+    "should_trigger": true
+  },
+  {
+    "query": "review the caregiver proxy access flow in our health app for screen reader users",
+    "should_trigger": true
+  },
+  {
+    "query": "our telehealth waiting room \u2014 can deaf patients get an interpreter in and is the UI accessible?",
+    "should_trigger": true
+  },
+  {
+    "query": "make the lab results table accessible without changing any clinical values or reference ranges",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you do a full WCAG 2.2 AA audit of our marketing site?",
+    "should_trigger": false
+  },
+  {
+    "query": "what does this lab result mean, is my cholesterol too high?",
+    "should_trigger": false
+  },
+  {
+    "query": "build a HIPAA-compliant database schema for appointments",
+    "should_trigger": false
+  },
+  {
+    "query": "fix the focus trap in components/Modal.tsx",
+    "should_trigger": false
+  }
+]
