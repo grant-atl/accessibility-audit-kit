@@ -37,3 +37,6 @@ jobs:
         run: npm install --no-save playwright@1.49.1 && npx playwright install --with-deps chromium
       - name: Check snippets match the answer key
         run: node tests/browser/check-snippets.mjs
+      - name: External validation on the W3C before/after demo (network)
+        continue-on-error: true
+        run: node tests/browser/check-w3c-demo.mjs

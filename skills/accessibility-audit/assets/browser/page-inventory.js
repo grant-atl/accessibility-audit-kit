@@ -66,10 +66,10 @@
     // Inline SVG without role="img" is treated as part of its container; unnamed containers are reported separately.
     if (el.localName === "svg" && el.getAttribute("role") !== "img") return [];
     const n = name(el);
-    if (el.localName === "img" && !el.hasAttribute("alt")) return [{ selector: selector(el), issue: "img has no alt attribute (1.1.1)" }];
-    if (el.localName === "img" && el.alt === "") return [{ selector: selector(el), issue: "empty alt: confirm the image is decorative (1.1.1)" }];
-    if (!n.name && el.localName !== "svg") return [{ selector: selector(el), issue: "image has no text alternative (1.1.1)" }];
-    return [{ selector: selector(el), issue: `review alt for purpose: "${short(n.name)}"` }];
+    if (el.localName === "img" && !el.hasAttribute("alt")) return [{ selector: selector(el), issue: "img has no alt attribute (1.1.1)", problem: true }];
+    if (el.localName === "img" && el.alt === "") return [{ selector: selector(el), issue: "empty alt: confirm the image is decorative (1.1.1)", problem: false }];
+    if (!n.name && el.localName !== "svg") return [{ selector: selector(el), issue: "image has no text alternative (1.1.1)", problem: true }];
+    return [{ selector: selector(el), issue: `review alt for purpose: "${short(n.name)}"`, problem: false }];
   });
 
   const focusableSelector = "a[href],button,input:not([type='hidden']),select,textarea,summary,iframe,[tabindex],[contenteditable='true']";
@@ -127,7 +127,8 @@
     lang: { value: lang, issue: lang ? "confirm it matches the page language (3.1.1)" : "missing html lang (3.1.1)" },
     headings: { count: headings.length, h1: headings.filter((h) => h.level === 1).length, outline: headings.slice(0, MAX) },
     landmarks: cap(landmarks),
-    images: cap(imageIssues),
+    images: cap(imageIssues.filter((i) => i.problem).map(({ problem, ...rest }) => rest)),
+    imagesToReview: cap(imageIssues.filter((i) => !i.problem).map(({ problem, ...rest }) => rest)),
     unnamedControls: cap(unnamed),
     placeholderOnlyFields: cap(placeholderOnly),
     labelInNameMismatches: cap(labelMismatch),

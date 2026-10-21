@@ -36,7 +36,27 @@ Run headless with `--setting-sources project,local` so only the plugin's skills 
 | accessibility-standards | 1: is 44×44 required at AA? | 4/4 | 24×24 for 2.5.8 with exceptions; 44×44 identified as 2.5.5 AAA and allowed as a design goal. |
 | accessibility-standards | 2: city of 30,000 | 3/4, then **4/4** | First run called 2.2 AA a "superset" of 2.1 AA. After the skill noted that 2.2 removed 4.1.1, the rerun checked DOJ live, gave April 26, 2028, and flagged 4.1.1 for the 2.1-based rule. |
 | accessibility-checks | 1: Husky + CI | 5/5 | Inspected Husky and appended to its hook instead of setting `core.hooksPath`. Wrote an argument-array config with `claude: false` and added the CI step. The headless harness blocked the `.husky/pre-commit` edit as a sensitive file; the agent reported this instead of working around it. It also noticed the fixture had no server, which is now fixed. |
-| healthcare-accessibility | 1: lab results table | 4/5, then **5/5** | Values, units, and ranges unchanged; no inferred direction or severity. The first run did not ask for clinical-owner review of new wording; after the skill required it, the rerun listed every wording change for confirmation. It cited 1.3.3 for a color-only flag, which mainly applies to instructions. |
+| healthcare-accessibility | 1: lab results table | 4/5, then **5/5** twice | Values, units, and ranges unchanged; no inferred direction or severity. The first run did not ask for clinical-owner review of new wording; after the skill required it, the rerun listed every wording change for confirmation. That rerun cited 1.3.3 for a color-only flag; after the skill distinguished 1.4.1 from 1.3.3, a third run cited only 1.4.1 and still requested clinical sign-off. |
+
+## Git hook, end to end (2026-10-21)
+
+The checks eval could not edit `.husky/pre-commit` in the headless harness, so the hook path was verified directly:
+
+- **Bundled template:** `tests/test_checks.py` installs `assets/pre-commit` exactly as `setup.md` describes, sets `core.hooksPath`, and makes real commits. A failing check blocks the commit; a passing check allows it. This runs in CI.
+- **Husky 9.1.6:** in a copy of the eval fixture, `npx husky` set `core.hooksPath` to `.husky/_`, and the line the eval agent proposed was appended to `.husky/pre-commit`. A failing accessibility check printed `husky - pre-commit script failed (code 1)` and left zero commits; a passing check committed.
+
+## External validation: W3C Before and After Demonstration (2026-10-21)
+
+`tests/browser/check-w3c-demo.mjs` runs the page inventory on the four pages of W3C's [deliberately inaccessible demo](https://www.w3.org/WAI/demos/bad/) and its remediated twin. This is an independent site the kit was not built against.
+
+| Page | Missing alternatives (before → after) | Unnamed controls | Headings | `lang` |
+|---|---|---|---|---|
+| Home | 33 → 0 | 8 → 0 | 1 → 9 | none → `en` |
+| News | 39 → 0 | 5 → 0 | 1 → 11 | none → `en` |
+| Tickets | 26 → 0 | 5 → 0 | 1 → 4 | none → `en` |
+| Survey | 24 → 0 | 17 → 0 | 1 → 5 | none → `en` |
+
+The target-size and reflow snippets flag some "after" pages too. Each was inspected and is a genuine failure, because the demo predates WCAG 2.1 and 2.2: a fixed 768 px layout scrolls horizontally at 320 px (1.4.10), and stacked 20 px-tall link lists have overlapping 24 px circles (2.5.8). No false positives were found. This run also showed that the inventory's image count mixed real problems with images merely needing review; those are now separate lists.
 
 ## Trigger evals (2026-10-21)
 

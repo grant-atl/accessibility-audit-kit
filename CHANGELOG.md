@@ -13,6 +13,9 @@ All notable changes to this project are documented here. The format follows [Kee
 - Demo site: a broken clinic booking page with 22 documented barriers, a remediated version, an answer key, and a sample report.
 - Headless Chromium regression check that runs every snippet against the demo pages and ten edge-case pages; CI job included.
 - Graded end-to-end eval runs in `evals/RESULTS.md`.
+- `evals/run_triggers.py` measures skill triggering with all five skills competing, isolated from user-level skills and MCP connectors.
+- External validation against W3C's Before and After Demonstration, run in CI as a non-blocking step.
+- End-to-end test that the bundled pre-commit hook blocks and allows real commits.
 - Trigger and behavior evals for every skill in skill-creator format.
 - Audit report template and example scope file in `skills/accessibility-audit/assets/`.
 - `coverage.py --report` writes a Markdown coverage rollup that names criteria but never locations or evidence.

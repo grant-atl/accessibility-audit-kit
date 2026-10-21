@@ -29,7 +29,7 @@ Use WCAG 2.2 AA as the engineering default unless the user specifies another tar
 
 ## Test the actual outcome
 
-Exercise each in-scope page/state with keyboard and actual supported AT, including VoiceOver where requested. Record platform, browser/AT versions, action, focus result, and announcement. An accessibility-tree snapshot is not a screen-reader test. Also verify contrast, 200% text resize, reflow, text spacing, touch/motion behavior, alternate text, and relevant page/document metadata through the chosen WCAG criteria.
+Exercise each in-scope page/state with keyboard and actual supported AT, including VoiceOver where requested. Record platform, browser/AT versions, action, focus result, and announcement. An accessibility-tree snapshot is not a screen-reader test. Also verify contrast, 200% text resize, reflow, text spacing, touch/motion behavior, alternate text, and relevant page/document metadata through the chosen WCAG criteria. Cite criteria precisely: a status, result flag, or availability shown only by color fails 1.4.1 Use of Color; 1.3.3 Sensory Characteristics applies only when *instructions* depend on shape, color, size, location, orientation, or sound, such as "tap the red dot".
 
 Test failed authentication, unavailable dates, invalid intake, expired sessions, lost connections, missing documents, and denied proxy permissions alongside the successful path. A vendor handoff is part of the journey. When access, specialist review, or a device is unavailable, record untested/blocked evidence; never replace it with a claimed pass. For an all-pages audit, a representative sample is incomplete coverage.
 

@@ -8,7 +8,8 @@ import sys
 import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parent.parent / "skills/accessibility-checks/scripts/checks.py"
+SKILL = Path(__file__).resolve().parent.parent / "skills/accessibility-checks"
+SCRIPT = SKILL / "scripts/checks.py"
 CLEAN_ENV = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
 
 
@@ -89,6 +90,30 @@ class ChecksTests(unittest.TestCase):
         result = self.hook()
         self.assertEqual(result.returncode, 2)
         self.assertIn("changed", result.stderr)
+
+    def test_pre_commit_template_blocks_and_allows_commits(self):
+        """Install the bundled hook exactly as setup.md describes, then commit for real."""
+        import shutil
+        hooks = self.root / ".githooks"
+        hooks.mkdir()
+        shutil.copy(SKILL / "assets/pre-commit", hooks / "pre-commit")
+        (hooks / "pre-commit").chmod(0o755)
+        (self.root / "scripts").mkdir()
+        shutil.copy(SCRIPT, self.root / "scripts/accessibility-checks.py")
+        git = ["git", "-C", str(self.root), "-c", "user.name=t", "-c", "user.email=t@t"]
+        subprocess.run(git + ["config", "--local", "core.hooksPath", ".githooks"], check=True, env=CLEAN_ENV)
+
+        def commit(message):
+            (self.root / "page.html").write_text(message)
+            subprocess.run(git + ["add", "-A"], check=True, env=CLEAN_ENV)
+            return subprocess.run(git + ["commit", "-q", "-m", message], capture_output=True, text=True, env=CLEAN_ENV)
+
+        self.configure(1)
+        self.assertNotEqual(commit("failing check").returncode, 0)
+        self.configure(0)
+        self.assertEqual(commit("passing check").returncode, 0)
+        log = subprocess.run(git + ["log", "--format=%s"], capture_output=True, text=True, env=CLEAN_ENV).stdout
+        self.assertEqual(log.split(), ["passing", "check"])
 
 
 if __name__ == "__main__":
