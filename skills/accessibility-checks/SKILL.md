@@ -1,6 +1,6 @@
 ---
 name: accessibility-checks
-description: "Set up or run repeatable accessibility regression checks with a project's existing test tools, plus optional Git pre-commit, CI, and Claude Code hooks. Use when adding a11y automation, wiring an existing axe or test:a11y command into hooks or CI, or running the configured check. Does not install scanners or replace manual testing."
+description: "Set up or run repeatable accessibility regression checks with a project's existing test tools, plus optional Git pre-commit, CI, and Claude Code hooks. Use when adding a11y automation, wiring an existing axe or test:a11y command into hooks or CI, making Claude run accessibility tests automatically after it edits files, or running the configured check. Does not install scanners or replace manual testing."
 license: MIT
 compatibility: "The check runner needs Python 3.9+, Git, and macOS, Linux, or WSL. Claude Code hooks require the accessibility-audit-kit plugin."
 metadata:

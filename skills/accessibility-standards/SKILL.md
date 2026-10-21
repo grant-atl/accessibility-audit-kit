@@ -1,6 +1,6 @@
 ---
 name: accessibility-standards
-description: "Select and explain accessibility standards: WCAG versions, levels, and success criteria, or the requirements behind ADA, Section 508, Section 504, EN 301 549, the EAA, and similar rules. Use for standards questions, choosing an engineering target, and scoping an audit. Not a substitute for testing a site or implementing fixes, and not legal advice."
+description: "Select and explain accessibility standards: WCAG versions, levels, and success criteria, or the legal and procurement requirements behind ADA Title II and III, Section 508, Section 504, EN 301 549, the EAA, and similar rules, including which rules apply to an organization such as a hospital, city, or retailer and by what deadline. Use for standards questions, choosing an engineering target, and scoping an audit. Not a substitute for testing a site or implementing fixes, and not legal advice."
 license: MIT
 metadata:
   author: grant-atl

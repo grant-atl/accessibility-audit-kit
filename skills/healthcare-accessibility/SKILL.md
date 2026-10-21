@@ -1,6 +1,6 @@
 ---
 name: healthcare-accessibility
-description: "Audit, design, or remediate accessibility in healthcare products: patient portals, caregiver and proxy access, clinician workflows, scheduling, intake, consent, telehealth, clinical results, and generated medical documents. Use when care access, clinical meaning, effective communication, or patient privacy affects the work. Not for medical advice or a generic page-only audit."
+description: "Audit, design, or remediate accessibility in healthcare products: patient portals, caregiver and proxy access, clinician workflows, scheduling, intake, consent, telehealth, clinical results, and generated medical documents. Use when care access, clinical meaning, effective communication, or patient privacy affects the work. For questions only about which laws or deadlines apply, use accessibility-standards instead. Not for medical advice or a generic page-only audit."
 license: MIT
 metadata:
   author: grant-atl
